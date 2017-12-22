@@ -1,0 +1,9 @@
+{
+  "name": "Hollis Blog 接口文档",
+  "version": "0.0.1",
+  "description": "所有功能的接口文档",
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url" : "http://blog.yangjialei.com/doc/index.html"
+  }
+}
