@@ -121,12 +121,6 @@ module.exports = {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <title>Hollis Blog</title>
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 <body class="pace-done">
 <div id="wrapper" data-name="Hollis">
