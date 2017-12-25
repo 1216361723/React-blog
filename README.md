@@ -107,9 +107,11 @@ module.exports = {
 
 2. HTML 的入口文件
 
-   我开发时候直接用了一个 html 的模板文件 来作为整个项目的入口文件，文件名： index.tmpl.html。
-   
-   ```html
+   我开发时候直接用了一个 html 的模板文件 来作为整个项目的入口文件，文件名： index.tmpl.html。因为
+  一开始我就不打算兼容什么ie浏览器 所以 在做这个项目的时候也没有考虑太多。
+  
+  
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -146,13 +148,45 @@ module.exports = {
 </html>
 ```
    
-   /*
-   
    
 
-3. React 的配置
+3. React 
 
-React 可以说是组件化的插件，它的核心就是组件，组件继承了它的所有，也是它运行的根本吧。
+React 可以说是组件化的插件，它的核心就是组件，组件继承了它的所有，也是它运行的根本吧。当然 React 它的周期性函数也很重要，在更新组件，删除组件的时候路由跳转的时候都是很有必要的。
+
+刚开始的时候，我想用 React 的路由插件的，可因为我想的是刷新页面还是停留在当前的页面的时候，我就在犹豫用不用 路由插件，因为如果想实现路由刷新后停留在当前页面，就得用缓存，当然这种做法不麻烦，就是把当前和之前的页面路由给缓存起来，刷新页面的时候把缓存的路由 赋值给初始路由就可以了。
+
+我就在思考能不能用浏览器的 URL 历史记录来实现这个路由机制。于是我就开始尝试着做，当然这种做法是可行的，但是具体有什么问题，我还没有发现。
+
+React 的入口文件 我命名为  main.js.
+
+main.js
+```js
+// main.js
+import React from 'react';
+import {render} from 'react-dom';
+require('bootstrap/dist/css/bootstrap.min.css');
+import './pulgs/layer/theme/default/layer.css';
+// import './css/index.css';    // 使用require导入css文件
+require('./css/font-awesome.css');
+require('./css/animate.css');
+require('./css/style.css');
+require('./css/hollis.css');
+
+window.$ = window.jQuery  = require('jquery');
+
+require('bootstrap/dist/js/bootstrap.min.js');
+require('./pulgs/layer/layer.js');
+require('./config/config.js');
+require('./modules/utils/utils.js');
+require('./modules/jQEvent/index.js');
+
+import App from './modules/App.jsx';
+
+
+render(<App />, document.getElementById('wrapper'));
+
+```
 
 
 
