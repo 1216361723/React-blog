@@ -102,8 +102,7 @@ module.exports = {
 
 }
 
-
-*/
+```
 
 
 2. HTML 的入口文件
@@ -145,7 +144,7 @@ module.exports = {
 </script>
 </body>
 </html>
-
+```
    
    /*
    
