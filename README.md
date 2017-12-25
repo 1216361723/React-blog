@@ -105,8 +105,57 @@ module.exports = {
 
 */
 
-2. React 
-3. Nginx 的配置
+
+2. HTML 的入口文件
+
+   我开发时候直接用了一个 html 的模板文件 来作为整个项目的入口文件，文件名： index.tmpl.html。
+   
+   ```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <title>Hollis Blog</title>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="pace-done">
+<div id="wrapper" data-name="Hollis">
+
+</div>
+<div id="loading-box" class="loading-box">
+  <div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+      <div class="sk-bounce1"></div>
+      <div class="sk-bounce2"></div>
+      <div class="sk-bounce3"></div>
+    </div>
+  </div>
+</div>
+<script>
+ document.getElementById("loading-box").style.lineHeight= screen.height +'px';
+</script>
+</body>
+</html>
+
+   
+   /*
+   
+   
+
+3. React 的配置
+
+React 可以说是组件化的插件，它的核心就是组件，组件继承了它的所有，也是它运行的根本吧。
+
+
 
 
 
