@@ -143,7 +143,12 @@
 
 
 	var Utils = {
-
+		trims(data) {
+			for(var item in data){
+				data[item] = data[item].replace(/^\s\s*/, '' ).replace(/\s\s*$/, '' );
+			}
+	    	return data;
+		},
 		transfer(arry) {
 			arry.forEach(function(element) {
 				element["label"] = element["text"];
@@ -287,13 +292,13 @@
 			});
 		},
 		ajaxData: function(obj) {
-			
+
 			if(!ajaxURLArray[obj.url]){
 				$.ajax({
 				headers: obj.headers,	
 				url: obj.url,
 				method: obj.method || 'post',
-				data: obj.data,
+				data: this.trims(obj.data),
 				dataType: obj.dataType || '',
 				beforeSend: function() {
 					document.getElementById("loading-box").style.display= 'block';
