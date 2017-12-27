@@ -1,9 +1,11 @@
 //app.js
 import React, {Component} from 'react';
-//import Content from './content/index.jsx';    // Content
-import Nav from '../common/Nav.jsx';    // nav
-import Footer from '../common/footer.jsx';    // Footer
-import Search from '../common/Search.jsx';    // Footer
+import frame from "./frame/stores/router3.jsx";    // 公告组件栏
+import Content from './content/index.jsx';    // 内容盒子
+const Nav = frame["Nav"],    // 导航
+      Footer = frame["Footer"],    // 尾部
+      ChatBox = frame["ChatBox"],    // 对话框
+      Search = frame["Search"];    // 搜索框
 
 class App extends Component{
 
@@ -11,6 +13,7 @@ class App extends Component{
         super(props);
         this.state = { 
             router: '',    // 路由
+            searchData: "",     // 搜索框传值
             routerTab: false,    // 路由切换控制器
             content: null    // 内容
          };
@@ -59,7 +62,6 @@ class App extends Component{
                 me.fetch();
             $(window).on('popstate', function () {
                 let router = me.URLChange();
-                // $("body").toggleClass("mini-navbar");    // 改变路由 隐藏导航条
                 me.setState({
                     router: router,
                     content: router
@@ -68,9 +70,11 @@ class App extends Component{
         }
     }
 
-    // 返回顶部
-    handleClick() {
-        $("html,body").animate({scrollTop:0},1000);
+    // 搜索传参
+    startSearch(data) {
+        this.setState({
+            searchData: data
+        })
     }
 
     render() {
@@ -79,18 +83,20 @@ class App extends Component{
             <div className="Hollis Blog">
                 <Nav router={ state.router } />
                 <div id="page-wrapper" className="gray-bg" style={{ paddingBottom: 100}}>
-                    <Search />
+                    <Search startSearch={ this.startSearch.bind(this) }/>
 
-                    <Content key={ state.router } routerURL={ state.content } />
-                        <div id="small-chat">
+                    <Content key={ state.router } routerURL={ state.content }  searchData={ state.searchData }/>
+
+                    <ChatBox />
+                    <div id="small-chat">
 
 {/*                            <span className="badge badge-warning pull-right">5</span>
 */}
-                            <a className="open-small-chat" href="javascript:;" onClick={ this.handleClick.bind(this) } >
-                                <i className="fa fa-arrow-circle-up"></i>
+                        <a className="open-small-chat scroll-top" href="javascript:;">
+                            <i className="fa fa-arrow-circle-up"></i>
 
-                            </a>
-                        </div>
+                        </a>
+                    </div>
                     <Footer />
                     
                 </div>
