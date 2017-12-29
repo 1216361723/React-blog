@@ -105,6 +105,10 @@ module.exports = {
 ```
 
 
+webpack.production.config.js
+这个用来生成的文件
+
+
 2. HTML 的入口文件
 
    我开发时候直接用了一个 html 的模板文件 来作为整个项目的入口文件，文件名： index.tmpl.html。因为
